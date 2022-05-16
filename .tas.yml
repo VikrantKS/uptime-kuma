@@ -2,7 +2,6 @@ postMerge :
   preRun: 
     command:
       - npm ci
-      - node test/prepare-jest.js
       
   
   subModules:          #Not to be changed
@@ -16,7 +15,7 @@ postMerge :
         
         preRun:
           command:
-            - node --version
+            - node test/prepare-jest.js
           env:
             TEST_FRONTEND: 1
             
@@ -40,7 +39,7 @@ postMerge :
             
         postRun:
             command:
-              - node --version
+              - node test/prepare-jest.js
         configFile : "./config/jest-backend.config.js"
       
         
