@@ -18,7 +18,7 @@ postMerge :
           command:
             - node --version
           env:
-            TEST_FRONTEND=1
+            TEST_FRONTEND: 1
             
         postRun:
             command:
@@ -34,7 +34,7 @@ postMerge :
         
         preRun:
           env:
-            TEST_BACKEND=1
+            TEST_BACKEND: 1
           command:
             - node --version
             
