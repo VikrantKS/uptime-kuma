@@ -1,0 +1,85 @@
+postMerge :
+  preRun: 
+    command:
+      - npm ci
+      - node test/prepare-jest.js
+      
+  
+  subModules:          #Not to be changed
+      
+      - name: frontend      
+        path : "./"
+        pattern: 
+          - "./test/frontend.spec.js"
+        
+        framework : jest
+        
+        preRun:
+          command:
+            - cross-env TEST_FRONTEND=1
+            
+        postRun:
+            command:
+              - node --version
+        configFile : "./config/jest-frontend.config.js"
+        
+      - name: backend      
+        path : "./"
+        pattern: 
+          - "./test/backend.spec.js"
+        
+        framework : jest
+        
+        preRun:
+          command:
+            - cross-env TEST_BACKEND=1
+            
+        postRun:
+            command:
+              - node --version
+        configFile : "./config/jest-backend.config.js"
+      
+        
+      
+        
+preMerge : 
+  
+  subModules:          #Not to be changed
+      - name: hoppscotch-cli      #Can be changed
+        path : "./"
+        pattern: 
+          - "./packages/hoppscotch-cli/src/__tests__/**/*.*.ts"
+        
+        framework : jest
+        postRun:
+            command:
+              - node --version
+        
+      - name: hoppscotch-js-sandbox       
+        path : "./"
+        pattern: 
+          - "./packages/hoppscotch-js-sandbox/src/__tests__/**/*.*.ts"
+        
+        framework : jest
+          
+        postRun:
+            command:
+              - node --version
+        configFile : "./packages/hoppscotch-js-sandbox/jest.config.js"
+        
+      - name: hoppscotch-app      
+        path : "./"
+        pattern: 
+          - "./packages/hoppscotch-app/src/__tests__/**/*.*.ts"
+        
+        framework : jest
+        
+          
+        postRun:
+            command:
+              - node --version
+        configFile : "./packages/hoppscotch-app/jest.config.js"
+        
+  
+parallelism: 2 # this will be depricated in future
+version : 2.0
