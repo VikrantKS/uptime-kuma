@@ -2,6 +2,7 @@ postMerge :
   preRun: 
     command:
       - npm ci
+      - npm run build
       - node test/prepare-jest.js
       
   
