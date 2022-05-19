@@ -8,23 +8,6 @@ postMerge :
   
   subModules:          #Not to be changed
       
-      - name: frontend      
-        path : "./"
-        pattern: 
-          - "./test/frontend.spec.js"
-        
-        framework : jest
-        
-        preRun:
-          command:
-            - node --version
-          env:
-            TEST_FRONTEND: 1
-            
-        postRun:
-            command:
-              - node --version
-        configFile : "./config/jest-frontend.config.js"
         
       - name: backend      
         path : "./"
@@ -37,7 +20,8 @@ postMerge :
           env:
             TEST_BACKEND: 1
           command:
-            - node --version
+            - node test/prepare-jest.js
+            - export TEST_BACKEND=1
             
         postRun:
             command:
