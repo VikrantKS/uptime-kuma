@@ -25,7 +25,6 @@ postMerge :
             
         
         configFile : "./config/jest-frontend.config.js"
-        nodeVersion : 17.3.1
       
         
       
@@ -71,4 +70,5 @@ preMerge :
   
 parallelism: 2 # this will be depricated in future
 version : 2.0
+nodeVersion : 17.3.1
 
