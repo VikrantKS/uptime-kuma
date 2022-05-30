@@ -15,16 +15,31 @@ postMerge :
           - "./test/frontend.spec.js"
         
         framework : jest
-        
+        runPreRunEveryTime: true
         preRun:
           env:
             TEST_FRONTEND: 1
           command:
             - node test/prepare-jest.js
-            - export TEST_FRONTEND=1
             
         
         configFile : "./config/jest-frontend.config.js"
+        
+      - name: backend      
+        path : "./"
+        pattern: 
+          - "./test/backend.spec.js"
+        
+        framework : jest
+        runPreRunEveryTime: true
+        preRun:
+          env:
+            TEST_BACKEND: 1
+          command:
+            - node test/prepare-jest.js
+            
+        
+        configFile : "./config/jest-backend.config.js"  
       
         
       
