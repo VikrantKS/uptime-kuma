@@ -40,7 +40,7 @@ postMerge :
             TEST_BACKEND: 1
           command:
             - node test/prepare-jest.js
-            
+        parallelism: 2
         
         configFile : "./config/jest-backend.config.js"  
       
