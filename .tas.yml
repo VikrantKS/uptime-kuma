@@ -1,90 +1,15 @@
-postMerge :
-  preRun: 
-    command:
-      - npm install
-      - npm run build
-      - node test/prepare-jest.js
-      
-  
-  subModules:          #Not to be changed
-      
-        
-      - name: frontend      
-        path : "./"
-        pattern: 
-          - "./test/frontend.spec.js"
-        
-        framework : jest
-        runPreRunEveryTime: true
-        preRun:
-          env:
-            TEST_FRONTEND: 1
-          command:
-            - node test/prepare-jest.js
-            
-        
-        configFile : "./config/jest-frontend.config.js"
-        
-      - name: backend      
-        path : "./"
-        pattern: 
-          - "./test/backend.spec.js"
-        
-        blocklist:
-          - "./test/backend.spec.js##Test reset-password"
-        
-        framework : jest
-        runPreRunEveryTime: true
-        preRun:
-          env:
-            TEST_BACKEND: 1
-          command:
-            - node test/prepare-jest.js
-        parallelism: 2
-        
-        configFile : "./config/jest-backend.config.js"  
-      
-        
-      
-        
-preMerge : 
-  
-  subModules:          #Not to be changed
-      - name: hoppscotch-cli      #Can be changed
-        path : "./"
-        pattern: 
-          - "./packages/hoppscotch-cli/src/__tests__/**/*.*.ts"
-        
-        framework : jest
-        postRun:
-            command:
-              - node --version
-        
-      - name: hoppscotch-js-sandbox       
-        path : "./"
-        pattern: 
-          - "./packages/hoppscotch-js-sandbox/src/__tests__/**/*.*.ts"
-        
-        framework : jest
-          
-        postRun:
-            command:
-              - node --version
-        configFile : "./packages/hoppscotch-js-sandbox/jest.config.js"
-        
-      - name: hoppscotch-app      
-        path : "./"
-        pattern: 
-          - "./packages/hoppscotch-app/src/__tests__/**/*.*.ts"
-        
-        framework : jest
-        
-          
-        postRun:
-            command:
-              - node --version
-        configFile : "./packages/hoppscotch-app/jest.config.js"
-        
-  
-version : 2.0
-nodeVersion : 17.3.1
+---
+framework: jest
+preRun:
+  command:
+    - npm install
+    - npm run build
+    - node test/prepare-jest.js
+  env:
+    TEST_FRONTEND: 1
+    
+postMerge:
+  pattern: 
+    - "./test/frontend.spec.js"
+configFile: "./config/jest-frontend.config.js"
+version: 1.0
