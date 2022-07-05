@@ -6,10 +6,10 @@ preRun:
     - npm run build
     - node test/prepare-jest.js
   env:
-    TEST_FRONTEND: 1
+    TEST_BACKEND: 1
     
 postMerge:
   pattern: 
-    - "./test/frontend.spec.js"
-configFile: "./config/jest-frontend.config.js"
+    - "./test/backend.spec.js"
+configFile: "./config/jest-backend.config.js"
 version: 1.0
