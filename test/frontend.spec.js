@@ -9,7 +9,7 @@ const { currentLocale } = require("../src/i18n");
 describe("Test i18n.js", () => {
 
     
-    it("currentLocale()", () => {
+    it("currentLocale() 123", () => {
         expect(currentLocale()).toEqual("en");
 
         navigator.language = "zh-HK";
