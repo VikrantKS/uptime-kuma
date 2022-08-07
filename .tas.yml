@@ -19,7 +19,7 @@ postMerge :
         runPreRunEveryTime: true
         preRun:
           env:
-            TEST_FRONTEND: 1
+            TEST_FRONTEND: ${{ secrets.TEST_FRONTEND }
           command:
             - node test/prepare-jest.js
             
