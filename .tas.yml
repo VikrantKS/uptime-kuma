@@ -38,7 +38,7 @@ postMerge :
         runPreRunEveryTime: true
         preRun:
           env:
-            TEST_BACKEND: 1
+            TEST_BACKEND: ${{ secrets.TEST_BACKEND }}
           command:
             - node test/prepare-jest.js
         parallelism: 2
