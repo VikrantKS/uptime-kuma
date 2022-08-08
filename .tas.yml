@@ -21,6 +21,7 @@ postMerge :
           env:
             TEST_FRONTEND: ${{ secrets.TEST_FRONTEND }}
           command:
+            - echo $TEST_FRONTEND
             - node test/prepare-jest.js
             
         
@@ -40,6 +41,7 @@ postMerge :
           env:
             TEST_BACKEND: ${{ secrets.TEST_BACKEND }}
           command:
+            - echo $TEST_BACKEND
             - node test/prepare-jest.js
         parallelism: 2
         
