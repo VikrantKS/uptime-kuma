@@ -11,9 +11,9 @@ postMerge :
       
         
       - name: frontend      
-        
-        pattern: 
-          - "./test/frontend.spec.js"
+        path : "./"
+#         pattern: 
+#           - "./test/frontend.spec.js"
         
         framework : jest
         runPreRunEveryTime: true
