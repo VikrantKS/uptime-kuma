@@ -11,7 +11,7 @@ postMerge :
       
         
       - name: frontend      
-        path : "./"
+        
         pattern: 
           - "./test/frontend.spec.js"
         
@@ -27,7 +27,7 @@ postMerge :
         
         configFile : "./config/jest-frontend.config.js"
         
-      - name: frontend      
+      - name: backend      
         path : "./"
         pattern: 
           - "./test/backend.spec.js"
