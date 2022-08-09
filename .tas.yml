@@ -15,7 +15,7 @@ postMerge :
         pattern: 
           - "./test/frontend.spec.js"
         
-#         framework : jest
+        framework : jestx
         runPreRunEveryTime: true
         preRun:
           env:
